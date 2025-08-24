@@ -2,7 +2,29 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, MapPin, Users, Clock, ExternalLink } from 'lucide-react';
+import { Calendar, MapPin, Users, Clock, ExternalLink, Star, Handshake, UserCheck } from 'lucide-react';
+import { useEffect, useState } from 'react';
+// Animated Counter Component
+const AnimatedCounter = ({ to, duration = 1.5 }: { to: number, duration?: number }) => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    let start = 0;
+    const increment = to / (duration * 60);
+    let frame: number;
+    const animate = () => {
+      start += increment;
+      if (start < to) {
+        setCount(Math.floor(start));
+        frame = requestAnimationFrame(animate);
+      } else {
+        setCount(to);
+      }
+    };
+    animate();
+    return () => cancelAnimationFrame(frame);
+  }, [to, duration]);
+  return <span>{count}</span>;
+};
 
 const Events = () => {
   const upcomingEvents = [
@@ -115,7 +137,7 @@ const Events = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+  {/* Hero Section */}
       <section className="py-20 bg-gradient-to-r from-primary/10 to-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -134,70 +156,10 @@ const Events = () => {
         </div>
       </section>
 
-      {/* Upcoming Events */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold text-foreground mb-4">Upcoming Events</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Don't miss out on these exciting upcoming events. Register now to secure your spot!
-            </p>
-          </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-            {upcomingEvents.map((event, index) => (
-              <motion.div
-                key={event.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-              >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 border-l-4 border-l-primary">
-                  <CardHeader>
-                    <div className="flex justify-between items-start mb-2">
-                      <Badge variant="secondary" className="bg-primary/10 text-primary">
-                        {event.type}
-                      </Badge>
-                      <span className="text-4xl">{event.image}</span>
-                    </div>
-                    <CardTitle className="text-xl">{event.title}</CardTitle>
-                    <CardDescription>{event.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <Calendar className="h-4 w-4 mr-2 text-primary" />
-                      {event.date}
-                    </div>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <Clock className="h-4 w-4 mr-2 text-primary" />
-                      {event.time}
-                    </div>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <MapPin className="h-4 w-4 mr-2 text-primary" />
-                      {event.location}
-                    </div>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <Users className="h-4 w-4 mr-2 text-primary" />
-                      Expected: {event.attendees} participants
-                    </div>
-                    <Button className="w-full mt-4 bg-primary hover:bg-secondary">
-                      Register Now
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+
+
+
 
       {/* Past Events Gallery */}
       <section className="py-20 bg-accent">
@@ -286,6 +248,40 @@ const Events = () => {
               Contact Us
             </Button>
           </motion.div>
+        </div>
+      </section>
+      {/* Stats Section (at end) */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-foreground mb-2">Event Statistics</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Here are some key numbers that highlight our impact and engagement through various events and collaborations.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+            <div className="flex flex-col items-center justify-center p-6 bg-card rounded-lg shadow">
+              <Star className="w-10 h-10 text-primary mb-2" />
+              <span className="text-3xl font-bold text-foreground">
+                <AnimatedCounter to={18} />
+              </span>
+              <span className="text-sm text-muted-foreground mt-1">Events Organized</span>
+            </div>
+            <div className="flex flex-col items-center justify-center p-6 bg-card rounded-lg shadow">
+              <Handshake className="w-10 h-10 text-secondary mb-2" />
+              <span className="text-3xl font-bold text-foreground">
+                <AnimatedCounter to={7} />
+              </span>
+              <span className="text-sm text-muted-foreground mt-1">Community Partnerships</span>
+            </div>
+            <div className="flex flex-col items-center justify-center p-6 bg-card rounded-lg shadow">
+              <UserCheck className="w-10 h-10 text-green-600 mb-2" />
+              <span className="text-3xl font-bold text-foreground">
+                <AnimatedCounter to={1200} />
+              </span>
+              <span className="text-sm text-muted-foreground mt-1">Participants in Events</span>
+            </div>
+          </div>
         </div>
       </section>
     </div>

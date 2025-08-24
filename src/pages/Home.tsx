@@ -2,34 +2,10 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Calendar, Users, Target, Code, BookOpen, Trophy } from 'lucide-react';
+import { ArrowRight, Users, Target, Code, BookOpen, Trophy } from 'lucide-react';
 import heroImage from '@/assets/hero-bg.jpg';
 
 const Home = () => {
-  const events = [
-    {
-      title: 'CSITAN Networking Bootcamp 2082',
-      date: 'Shrawan 25-27, 2082',
-      type: 'Bootcamp',
-      description:
-        'Join us for our biggest annual event featuring industry experts and cutting-edge technology discussions.',
-    },
-    {
-      title: 'Coding Bootcamp',
-      date: 'April 8-10, 2024',
-      type: 'Workshop',
-      description:
-        'Intensive 3-day coding workshop covering modern web development technologies and best practices.',
-    },
-    {
-      title: 'Hackathon 2024',
-      date: 'May 20-22, 2024',
-      type: 'Competition',
-      description:
-        '48-hour hackathon challenging students to build innovative solutions for real-world problems.',
-    },
-  ];
-
   const testimonials = [
     {
       name: 'Raj Sharma',
@@ -171,54 +147,6 @@ const Home = () => {
                 collaborative ecosystem for CSIT students in Rupandehi district.
               </p>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Events Highlights */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold text-foreground mb-4">Upcoming Events</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Join us in our exciting events designed to enhance your skills and expand your network
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {events.map((event, index) => (
-              <motion.div
-                key={event.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-              >
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                  <CardHeader>
-                    <div className="flex justify-between items-start mb-2">
-                      <Badge variant="secondary" className="mb-2">
-                        {event.type}
-                      </Badge>
-                      <Calendar className="h-5 w-5 text-primary" />
-                    </div>
-                    <CardTitle className="text-xl">{event.title}</CardTitle>
-                    <CardDescription className="text-primary font-medium">
-                      {event.date}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{event.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Target, Eye, Lightbulb, Users, Trophy, Calendar } from 'lucide-react';
+import csitanLogo from '@/assets/csitan-logo.png';
 
 const About = () => {
   const objectives = [
@@ -67,6 +68,15 @@ const About = () => {
       title: 'Future Vision',
       description: 'Continuing to innovate and expand our impact in the technology community.',
     },
+  ];
+
+  // Regional Committees Data
+  const regionalCommittees = [
+    { region: null, logo: csitanLogo },
+    { region: 'Rupandehi', logo: csitanLogo },
+    { region: 'Pokhara', logo: csitanLogo },
+    { region: 'Purwanchal', logo: csitanLogo },
+    { region: 'Chitwan', logo: csitanLogo },
   ];
 
   return (
@@ -260,6 +270,43 @@ const About = () => {
                     </CardContent>
                   </Card>
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+       {/* Regional Committees Section */}
+      <section className="py-20 bg-gradient-to-r from-secondary/10 to-primary/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold text-foreground mb-4">Our Regional Committees</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+               CSITAN operates through 5 regional committees across Nepal, each serving their 
+              local computer science and IT communities with dedication and excellence.
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-0 justify-items-center">
+            {regionalCommittees.map((committee, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="flex flex-col items-center"
+              >
+                <div className="bg-card rounded-lg shadow flex items-center justify-center w-28 h-28 mb-1">
+                  <img src={committee.logo} alt="Regional Committee Logo" className="w-20 h-20 object-contain" />
+                </div>
+                <span className="text-xs font-normal text-foreground text-center mt-0.5">CSIT Association of Nepal</span>
+                {committee.region && (
+                  <span className="text-xs font-normal text-foreground text-center mt-0.5">{committee.region}</span>
+                )}
               </motion.div>
             ))}
           </div>
