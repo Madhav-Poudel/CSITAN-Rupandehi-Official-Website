@@ -1,106 +1,76 @@
+
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Facebook, Linkedin, Twitter, Crown, Users, GraduationCap } from 'lucide-react';
+import csitanLogo from '@/assets/csitan-logo.png';
+import {
+  presidentPhoto,
+  vicePresidentAayush,
+  vicePresidentLaxmi,
+  treasurerPhoto,
+  secretaryPhoto,
+  jointTreasurerSmriti,
+  jointTreasurerJeevan,
+  executiveAadarsh,
+  executiveRomars,
+  executiveSupriya,
+  executiveSimran,
+  executiveElish,
+  executiveGovinda,
+  executiveSuraj,
+} from '@/assets/teamMemberImages';
 
 const Team = () => {
   // Executive Members
+  // Executive structure: 1 President, 2 Vice Presidents, 1 Treasurer, 1 Secretary, 7 Executive Members
   const executiveMembers = [
-    {
-      name: 'Ramesh Sharma',
-      post: 'President',
-      photo: '👨‍💼',
-      social: { facebook: '#', linkedin: '#', twitter: '#' },
-    },
-    {
-      name: 'Sita Poudel',
-      post: 'Vice President',
-      photo: '👩‍💼',
-      social: { facebook: '#', linkedin: '#', twitter: '#' },
-    },
-    {
-      name: 'Anil Thapa',
-      post: 'General Secretary',
-      photo: '👨‍💻',
-      social: { facebook: '#', linkedin: '#', twitter: '#' },
-    },
-    {
-      name: 'Priya Gupta',
-      post: 'Treasurer',
-      photo: '👩‍💻',
-      social: { facebook: '#', linkedin: '#', twitter: '#' },
-    },
-    {
-      name: 'Rajesh Yadav',
-      post: 'Technical Lead',
-      photo: '👨‍🔬',
-      social: { facebook: '#', linkedin: '#', twitter: '#' },
-    },
-    {
-      name: 'Maya Shrestha',
-      post: 'Event Coordinator',
-      photo: '👩‍🎨',
-      social: { facebook: '#', linkedin: '#', twitter: '#' },
-    },
+    { name: 'Suhan Shrestha', post: 'Executive Member', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: executiveAadarsh },
+    { name: 'Aadarsh Paudel', post: 'Executive Member', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: executiveAadarsh },
+    { name: 'Romars Bhusal', post: 'Executive Member', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: executiveRomars },
+    { name: 'Supriya Shrestha', post: 'Executive Member', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: executiveSupriya },
+    { name: 'Simran Pokhrel', post: 'Executive Member', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: executiveSimran },
+    { name: 'Elish Neupane', post: 'Executive Member', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: executiveElish },
+    { name: 'Govinda Sagar Bhusal', post: 'Executive Member', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: executiveGovinda },
+    { name: 'Suraj Agrahari', post: 'Executive Member', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: executiveSuraj },
   ];
 
+  // Top officers
+  const president = { name: 'Madhav Poudel', post: 'President', social: { facebook: '#', linkedin: '#', twitter: '#' } };
+  const vicePresidents = [
+    { name: 'Laxmi Khanal', post: 'Vice President', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: vicePresidentLaxmi },
+    { name: 'Aayush Chapagain', post: 'Vice President', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: vicePresidentAayush },
+  ];
+  const treasurer = { name: 'Nirmal Kharal', post: 'Treasurer', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: treasurerPhoto };
+  const secretary = { name: 'Kalpit Nepal', post: 'Secretary', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: secretaryPhoto };
+
   // Senior Members
-  const seniorMembers = [
-    {
-      name: 'Bikash Adhikari',
-      post: 'Senior Advisor',
-      photo: '👨‍🏫',
-      social: { facebook: '#', linkedin: '#', twitter: '#' },
-    },
-    {
-      name: 'Sunita Karki',
-      post: 'Mentor',
-      photo: '👩‍🏫',
-      social: { facebook: '#', linkedin: '#', twitter: '#' },
-    },
-    {
-      name: 'Deepak Pandey',
-      post: 'Alumni Coordinator',
-      photo: '👨‍🎓',
-      social: { facebook: '#', linkedin: '#', twitter: '#' },
-    },
-    {
-      name: 'Anita Bhandari',
-      post: 'Research Head',
-      photo: '👩‍🔬',
-      social: { facebook: '#', linkedin: '#', twitter: '#' },
-    },
+  // 2 Joint Secretaries
+  const jointSecretaries = [
+    { name: 'Smiriti Neupane', post: 'Joint Secretary', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: jointTreasurerSmriti },
+    { name: 'Jeevan Ghimire', post: 'Joint Secretary', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: jointTreasurerJeevan },
   ];
 
   // College Representatives
   const collegeRepresentatives = {
     'Butwal Multiple Campus': [
-      'Suresh Neupane',
-      'Kamala Rijal',
-      'Binod Sharma',
-      'Roshani Thapa',
-      'Naresh Kumar',
+      'Nischal Panthi',
+      'Rupesh Kharal',
+      'Suchana Bhandari',
+      'Swikriti A.C',
     ],
     'Lumbini City College': [
-      'Ashok Paudel',
-      'Sarita Ghimire',
-      'Prakash Joshi',
-      'Indira Kumari',
-      'Ramesh Bhatta',
+      'Smarika Gyawali',
+      'Trishan Shrestha',
+      'Anjana Aryal',
     ],
     'Nepathya College': [
-      'Rajesh Maharjan',
-      'Sangita Ale',
-      'Umesh Pant',
-      'Gita Sharma',
-      'Mohan Khadka',
+      'Gaurav Poudel',
     ],
     'Bhairahawa Multiple Campus': [
-      'Sandip Gautam',
-      'Renu Aryal',
-      'Dipendra Shah',
-      'Sabina Regmi',
-      'Govinda Prasad',
+      'Anshuya Aryal',
+      'Aashika Bhandari',
+      'Saroj Poudel',
     ],
   };
 
@@ -124,7 +94,27 @@ const Team = () => {
     >
       <Card className="h-full hover:shadow-lg transition-all duration-300 text-center">
         <CardHeader>
-          <div className="text-6xl mb-4">{member.photo}</div>
+          <div className="flex justify-center mb-4">
+            {member.photo ? (
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className={
+                      member.post === 'President'
+                        ? 'w-20 h-20 rounded-full object-cover object-center border-2 border-primary bg-white scale-100'
+                        : 'w-28 h-28 rounded-full object-cover object-center border-2 border-primary bg-white scale-100'
+                    }
+                  />
+            ) : (
+              <div className={
+                member.post === 'President'
+                  ? 'w-20 h-20 rounded-full flex items-center justify-center bg-muted text-xl font-bold border-2 border-primary'
+                  : 'w-28 h-28 rounded-full flex items-center justify-center bg-muted text-xl font-bold border-2 border-primary'
+              }>
+                {member.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+              </div>
+            )}
+          </div>
           <CardTitle className="text-xl">{member.name}</CardTitle>
           <Badge variant="secondary" className="mx-auto">
             {member.post}
@@ -245,7 +235,42 @@ const Team = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* President */}
+          <div className="grid grid-cols-1 max-w-md mx-auto mb-8">
+            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow p-6">
+              <img src={presidentPhoto} alt="President" className="w-48 h-48 rounded-full object-cover border-2 border-primary mb-4" />
+              <div className="font-bold text-2xl mb-1">{president.name}</div>
+              <Badge variant="secondary" className="mb-2 text-lg py-1 px-3">{president.post}</Badge>
+              <div className="flex justify-center space-x-4 mt-3">
+                <a href={president.social.facebook} className="text-muted-foreground hover:text-primary transition-colors">
+                  <Facebook className="h-7 w-7" />
+                </a>
+                <a href={president.social.linkedin} className="text-muted-foreground hover:text-primary transition-colors">
+                  <Linkedin className="h-7 w-7" />
+                </a>
+                <a href={president.social.twitter} className="text-muted-foreground hover:text-primary transition-colors">
+                  <Twitter className="h-7 w-7" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* 2 VPs + Treasurer */}
+          <div className="grid grid-cols-1 md:grid-cols-3 max-w-8xl mx-auto mb-8 gap-12">
+            <MemberCard member={vicePresidents[0]} index={0} />
+            <MemberCard member={vicePresidents[1]} index={1} />
+            <MemberCard member={treasurer} index={2} />
+          </div>
+
+          {/* Secretary + 2 Joint Secretaries */}
+          <div className="grid grid-cols-1 md:grid-cols-3 max-w-8xl mx-auto mb-8 gap-12">
+            <MemberCard member={secretary} index={0} />
+            <MemberCard member={jointSecretaries[0]} index={1} />
+            <MemberCard member={jointSecretaries[1]} index={2} />
+          </div>
+
+          {/* Executive Members, 3 per row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {executiveMembers.map((member, index) => (
               <MemberCard key={member.name} member={member} index={index} />
             ))}
@@ -253,31 +278,6 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Senior Members */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <div className="flex items-center justify-center mb-4">
-              <GraduationCap className="h-8 w-8 text-primary mr-3" />
-              <h2 className="text-3xl font-bold text-foreground">Senior Members</h2>
-            </div>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Experienced mentors providing guidance and support to our community.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {seniorMembers.map((member, index) => (
-              <MemberCard key={member.name} member={member} index={index} />
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* College Representatives */}
       <section className="py-20 bg-accent">
@@ -294,10 +294,13 @@ const Team = () => {
             </p>
           </motion.div>
 
+          {/* Custom grid order for CRs */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {Object.entries(collegeRepresentatives).map(([college, members], index) => (
+            {/* First row: Butwal Multiple Campus, Bhairahawa Multiple Campus */}
+            {[['Butwal Multiple Campus', collegeRepresentatives['Butwal Multiple Campus']],
+              ['Bhairahawa Multiple Campus', collegeRepresentatives['Bhairahawa Multiple Campus']]].map(([college, members], index) => (
               <motion.div
-                key={college}
+                key={college as string}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -309,13 +312,47 @@ const Team = () => {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2">
-                      {members.map((member, idx) => (
+                      {Array.isArray(members) && members.map((member, idx) => (
                         <motion.li
                           key={member}
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: (index * 0.1) + (idx * 0.05) }}
+                          className="flex items-center p-2 rounded-lg hover:bg-muted/50 transition-colors"
+                        >
+                          <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                          <span className="text-muted-foreground">{member}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+            {/* Second row: Lumbini City College, Nepathya College (Nepathya smaller) */}
+            {[['Lumbini City College', collegeRepresentatives['Lumbini City College']],
+              ['Nepathya College', collegeRepresentatives['Nepathya College']]].map(([college, members], index) => (
+              <motion.div
+                key={college as string}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (index + 2) * 0.1 }}
+              >
+                <Card className={`h-full ${college === 'Nepathya College' ? 'md:h-40' : ''}`}>
+                  <CardHeader>
+                    <CardTitle className="text-xl text-center text-primary">{college}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2">
+                      {Array.isArray(members) && members.map((member, idx) => (
+                        <motion.li
+                          key={member}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: ((index + 2) * 0.1) + (idx * 0.05) }}
                           className="flex items-center p-2 rounded-lg hover:bg-muted/50 transition-colors"
                         >
                           <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
@@ -345,13 +382,16 @@ const Team = () => {
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               Are you passionate about technology and community building? We're always looking for dedicated individuals to join our team.
             </p>
-            <motion.button
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              className="inline-block bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              href="https://forms.gle/RGu9fdCXbTbCJPP57"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Get Involved
-            </motion.button>
+              Be a General Member
+            </motion.a>
           </motion.div>
         </div>
       </section>
