@@ -1,3 +1,15 @@
+import csitan4 from '@/assets/csitan4.jpg';
+import csitan5 from '@/assets/csitan5.jpg';
+import csitan6 from '@/assets/csitan6.jpg';
+import csitan7 from '@/assets/csitan7.jpg';
+import csitan8 from '@/assets/csitan8.jpg';
+import csitan9 from '@/assets/csitan9.jpg';
+import heroBg from '@/assets/hero-bg.jpg';
+import copyImg from '@/assets/copy.jpg';
+import backgroundImg from '@/assets/background.jpg';
+import csitan1 from '@/assets/csitan1.jpg';
+import csitan2 from '@/assets/csitan2.jpg';
+import csitan3 from '@/assets/csitan3.jpg';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -91,18 +103,23 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-primary/10 to-secondary/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        className="py-20 relative bg-cover bg-center"
+        style={{ backgroundImage: `url(${backgroundImg})` }}
+      >
+        {/* Transparent dark overlay */}
+        <div className="absolute inset-0 bg-black" style={{ opacity: 0.55, zIndex: 1 }}></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
               Contact <span className="text-primary">Us</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
               Get in touch with us for any questions, suggestions, or collaboration opportunities. We'd love to hear from you!
             </p>
           </motion.div>
@@ -118,8 +135,10 @@ const Contact = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-foreground mb-4">Get In Touch</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-black mb-4">
+              Get In <span className="text-red-500">Touch</span>
+            </h2>
+            <p className="text-lg text-black max-w-2xl mx-auto">
               Multiple ways to reach us. Choose what works best for you.
             </p>
           </motion.div>
@@ -136,7 +155,7 @@ const Contact = () => {
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -10 }}
                 >
-                  <Card className="h-full text-center hover:shadow-lg transition-all duration-300">
+                  <Card className="h-full text-center hover:shadow-lg transition-all duration-300 rounded-3xl">
                     <CardHeader>
                       <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
                         <Icon className="h-6 w-6 text-primary-foreground" />
@@ -156,8 +175,13 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Map */}
-      <section className="py-20 bg-accent">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        className="py-20 relative bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      >
+        {/* Transparent dark overlay */}
+        <div className="absolute inset-0 bg-black" style={{ opacity: 0.55, zIndex: 1 }}></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <motion.div
@@ -165,7 +189,7 @@ const Contact = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <Card>
+              <Card className="rounded-3xl">
                 <CardHeader>
                   <div className="flex items-center mb-4">
                     <MessageCircle className="h-6 w-6 text-primary mr-3" />
@@ -252,27 +276,9 @@ const Contact = () => {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              {/* Embedded Map */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <MapPin className="h-5 w-5 text-primary mr-2" />
-                    Find Us
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="w-full h-64 bg-muted rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="h-12 w-12 text-primary mx-auto mb-2" />
-                      <p className="text-muted-foreground">Interactive Map</p>
-                      <p className="text-sm text-muted-foreground">Butwal-12, Rupandehi, Nepal</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
 
               {/* Social Media */}
-              <Card>
+              <Card className="rounded-3xl">
                 <CardHeader>
                   <CardTitle>Follow Us</CardTitle>
                   <p className="text-muted-foreground">Stay connected on social media for updates and community discussions.</p>
@@ -302,16 +308,21 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        className="py-20 relative bg-cover bg-center"
+        style={{ backgroundImage: `url(${copyImg})`, backgroundPosition: 'left center' }}
+      >
+        {/* Extra dark overlay for FAQ section */}
+        <div className="absolute inset-0 bg-black" style={{ opacity: 0.7, zIndex: 1 }}></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+            <p className="text-lg text-white max-w-2xl mx-auto">
               Find answers to common questions about CSITAN Rupandehi.
             </p>
           </motion.div>
@@ -325,10 +336,16 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card>
-                  <CardContent className="pt-6">
-                    <h3 className="text-lg font-semibold text-foreground mb-3">{faq.question}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                <Card className="rounded-3xl ml-4">
+                  <CardContent className="pt-6 ml-2">
+                    <h3 className="text-lg font-semibold text-foreground mb-3 flex items-start ml-1">
+                      <span className="mr-2 mt-1 text-primary">•</span>
+                      {faq.question}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed flex items-start ml-1">
+                      <span className="mr-2 mt-1 text-primary">➔</span>
+                      {faq.answer}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>

@@ -3,33 +3,36 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Users, Target, Code, BookOpen, Trophy } from 'lucide-react';
-import heroImage from '@/assets/hero-bg.jpg';
+import webImage from '@/assets/web.jpg';
+import presidentImg from '@/assets/president.jpg';
+import vicePresidentLaxmiImg from '@/assets/vicePresident-laxmi.jpg';
+import treasurerImg from '@/assets/treasurer.jpg';
 
 const Home = () => {
   const testimonials = [
     {
-      name: 'Raj Sharma',
+      name: 'Madhav Poudel',
       role: 'Software Engineer',
       company: 'Tech Corp Nepal',
       content:
         'CSITAN Rupandehi provided me with incredible networking opportunities and helped shape my career in technology.',
-      avatar: '👨‍💻',
+      photo: presidentImg,
     },
     {
-      name: 'Sita Poudel',
+      name: 'Laxmi Khanal',
       role: 'Data Scientist',
       company: 'Innovation Labs',
       content:
         'The events organized by CSITAN were instrumental in keeping me updated with latest technology trends.',
-      avatar: '👩‍💻',
+      photo: vicePresidentLaxmiImg,
     },
     {
-      name: 'Anil Thapa',
+      name: 'Nirmal Kharal',
       role: 'Tech Entrepreneur',
       company: 'StartupX',
       content:
         'Being part of CSITAN community opened doors to mentorship and collaboration opportunities.',
-      avatar: '👨‍🎓',
+      photo: treasurerImg,
     },
   ];
 
@@ -37,32 +40,34 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+  className="relative h-screen flex items-center bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url(${heroImage})`,
+          backgroundImage: `url(${webImage})`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20"></div>
-        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
+  {/* Transparent dark overlay */}
+  {/* Dark overlay in front of bg image */}
+  <div className="absolute inset-0 bg-black/80" style={{zIndex: 2}}></div>
+  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20" style={{zIndex: 3}}></div>
+  <div className="relative z-20 text-white px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full max-w-4xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
           >
-            Empowering Students,
-            <br />
-            <span className="text-primary">Advancing Technology</span>
+            Learning Today,
+            <br className="hidden sm:block" />
+            <span className="block mt-3 text-primary">Leading Tomorrow</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl sm:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl sm:text-2xl mb-8 max-w-3xl leading-relaxed"
           >
-            CSIT Association of Nepal - Rupandehi is dedicated to bridging the gap between academia
-            and industry, fostering innovation and professional growth.
+            CSIT Association of Nepal - Rupandehi is a non-profit organization dedicated to bridging the gap between CSIT students, universities, and the industry through meaningful and impactful programs and initiatives.
           </motion.p>
 
           <motion.div
@@ -90,11 +95,16 @@ const Home = () => {
               </Button>
             </motion.div>
           </motion.div>
+          <div className="flex justify-center mt-14">
+            <span className="bg-primary text-white text-2xl font-bold px-10 py-3 rounded-full shadow-lg border-4 border-white select-none tracking-wide">
+              Since 2017
+            </span>
+          </div>
         </div>
       </section>
 
       {/* About Teaser */}
-      <section className="py-20 bg-accent">
+  <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -107,7 +117,7 @@ const Home = () => {
                 <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4">
                   <Target className="h-6 w-6 text-primary-foreground" />
                 </div>
-                <h2 className="text-3xl font-bold text-foreground">Who We Are</h2>
+                <h2 className="text-3xl font-bold text-red-500">Who We Are</h2>
               </div>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 CSITAN Rupandehi is a regional body of CSIT Association of Nepal, established to
@@ -138,21 +148,23 @@ const Home = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg p-8 text-center"
+              className="flex flex-col items-center justify-center"
             >
-              <div className="text-6xl mb-4">🚀</div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
-              <p className="text-muted-foreground">
-                To foster technological innovation, professional development, and create a
-                collaborative ecosystem for CSIT students in Rupandehi district.
-              </p>
+              <div className="relative bg-white rounded-3xl shadow-2xl p-10 border-4 border-primary mx-auto max-w-xl flex flex-col items-center">
+                <span className="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary text-white text-lg font-semibold px-6 py-1 rounded-full shadow border-2 border-white z-10 select-none">
+                  Our Vision
+                </span>
+                <h3 className="text-3xl sm:text-4xl font-extrabold text-primary mb-2 tracking-tight text-center mt-4">
+                  &quot;Calibrating Technical Potential&quot;
+                </h3>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-accent">
+  <section className="py-20 bg-gradient-to-br from-black via-gray-900 to-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -160,7 +172,7 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-foreground mb-4">What Our Members Say</h2>
+            <h2 className="text-3xl font-bold text-white mb-4">What Our Members Say</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Hear from our community members about their experiences with CSITAN Rupandehi
             </p>
@@ -175,14 +187,19 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="h-full">
-                  <CardContent className="p-6">
-                    <div className="text-4xl mb-4">{testimonial.avatar}</div>
-                    <p className="text-muted-foreground mb-4 italic">"{testimonial.content}"</p>
-                    <div>
-                      <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-                      <p className="text-sm text-primary">{testimonial.role}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+                <Card className="h-full bg-white border-2 border-primary shadow-xl">
+                  <CardContent className="p-6 flex flex-col items-center">
+                    <img
+                      src={testimonial.photo}
+                      alt={testimonial.name}
+                      className="w-20 h-20 rounded-full object-cover mb-4 border-4 border-primary shadow"
+                      draggable="false"
+                    />
+                    <p className="text-gray-700 mb-4 italic text-center">"{testimonial.content}"</p>
+                    <div className="text-center">
+                      <h4 className="font-semibold text-primary text-lg">{testimonial.name}</h4>
+                      <p className="text-sm text-secondary font-medium">{testimonial.role}</p>
+                      <p className="text-sm text-gray-500">{testimonial.company}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -193,7 +210,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-secondary">
+  <section className="py-20 bg-gradient-to-br from-black via-gray-900 to-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

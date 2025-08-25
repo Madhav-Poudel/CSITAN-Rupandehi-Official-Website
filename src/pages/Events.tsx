@@ -1,8 +1,11 @@
+import background from '@/assets/background.jpg';
+import waveDivider from '@/assets/wave-divider.svg';
+import heroImage from '@/assets/hero-bg.jpg';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, MapPin, Users, Clock, ExternalLink, Star, Handshake, UserCheck } from 'lucide-react';
+import { Calendar, MapPin, Users, Clock, ExternalLink, Star, Handshake, UserCheck, Briefcase } from 'lucide-react';
 import { useEffect, useState } from 'react';
 // Animated Counter Component
 const AnimatedCounter = ({ to, duration = 1.5 }: { to: number, duration?: number }) => {
@@ -38,7 +41,7 @@ const Events = () => {
       status: 'upcoming',
       attendees: 300,
       description: 'Join us for our biggest annual event featuring keynote speeches from industry leaders, technical workshops, and networking opportunities.',
-      image: '🎯',
+      image: '�', // Conference
     },
     {
       id: 2,
@@ -50,7 +53,7 @@ const Events = () => {
       status: 'upcoming',
       attendees: 50,
       description: 'Intensive 3-day hands-on workshop covering modern web development with React.js and Node.js.',
-      image: '💻',
+      image: '�️', // Workshop
     },
     {
       id: 3,
@@ -62,83 +65,92 @@ const Events = () => {
       status: 'upcoming',
       attendees: 120,
       description: '48-hour hackathon challenging teams to build innovative solutions for local community problems.',
-      image: '🚀',
+      image: '🏆', // Competition
     },
   ];
 
   const pastEvents = [
     {
       id: 4,
-      title: 'AI/ML Workshop Series',
-      date: 'February 10-12, 2024',
-      location: 'Virtual Event',
-      type: 'Workshop',
-      attendees: 200,
-      description: 'Three-day virtual workshop series on Artificial Intelligence and Machine Learning fundamentals.',
-      image: '🤖',
-      highlights: ['250+ participants', 'Industry expert speakers', 'Hands-on projects'],
+      title: 'CSITAN Networking Bootcamp 2082',
+      date: 'Shrawan 25th - 27th, 2082',
+      location: 'Horizon GBS School, Drivertol',
+      type: 'Bootcamp',
+      attendees: 63,
+      description: '30-hour hands-on, immersive bootcamp on Networking fundamentals organized by CSITAN in 2082.',
+      image: '🛜', // Bootcamp
+      highlights: ['60+ participants', 'Network Expert', 'Hands-on projects'],
     },
     {
       id: 5,
-      title: 'Tech Career Fair 2023',
-      date: 'December 15, 2023',
-      location: 'Bhairahawa Multiple Campus',
-      type: 'Career Fair',
-      attendees: 500,
-      description: 'Major career fair connecting students with leading technology companies.',
-      image: '💼',
-      highlights: ['25+ companies', '150+ job offers', 'Networking sessions'],
+      title: 'Web Designing Essentials 2.0',
+      date: 'Mangsir 15th - 23rd, 2081',
+      location: 'Lumbini City College',
+      type: 'Workshop',
+      attendees: 40,
+      description: 'Advanced continuation workshop introducing modern web design tools, frameworks, and trends with React.js.',
+      image: '👨🏻‍💻', // Workshop
+      highlights: ['25+ companies', 'Web Dev Experts', 'Project Based Learning'],
     },
     {
       id: 6,
-      title: 'Cybersecurity Awareness Workshop',
-      date: 'November 8, 2023',
-      location: 'Butwal Multiple Campus',
+      title: 'Web Designing Essential',
+      date: 'Magh 2nd - 6th, 2079',
+      location: 'Lumbini City College',
       type: 'Workshop',
-      attendees: 100,
+      attendees: 40,
       description: 'Educational workshop on cybersecurity best practices and threat awareness.',
-      image: '🔒',
+      image: '🌐',
       highlights: ['Security experts', 'Practical demonstrations', 'Certificate provided'],
     },
     {
       id: 7,
-      title: 'Mobile App Development Contest',
-      date: 'October 20-22, 2023',
+      title: '3 days Hands-on Python Django Framework',
+      date: 'Poush 10th - 12th, 2078',
       location: 'Lumbini City College',
       type: 'Competition',
       attendees: 80,
       description: '3-day mobile app development competition with prizes for best apps.',
       image: '📱',
-      highlights: ['15+ teams', 'NPR 50,000 prize pool', 'Industry judges'],
+      highlights: ['Expert mentors', 'Exciting challenges', 'Prizes for winners'],
     },
     {
       id: 8,
-      title: 'Web Development Bootcamp',
-      date: 'September 5-7, 2023',
-      location: 'Nepathya College',
-      type: 'Workshop',
-      attendees: 75,
-      description: 'Comprehensive bootcamp covering full-stack web development.',
-      image: '🌐',
-      highlights: ['Full-stack curriculum', 'Project-based learning', 'Mentor support'],
+      title: 'IT Teachers Futsal Cup',
+      date: 'Falgun 8th, 2077',
+      location: 'Friends Bistro and Sports, Manigram',
+      type: 'Sport',
+      attendees: 48,
+      description: 'Exciting futsal tournament for IT teachers to promote fitness and teamwork.',
+      image: '⚽',
+      highlights: ['Friendly competition', 'Networking opportunities', 'Refreshments provided'],
     },
     {
       id: 9,
-      title: 'Tech Talk: Future of Computing',
-      date: 'August 18, 2023',
-      location: 'Virtual Event',
-      type: 'Seminar',
-      attendees: 150,
-      description: 'Inspiring talk about emerging technologies and future computing trends.',
-      image: '🔮',
-      highlights: ['Renowned speaker', 'Q&A session', 'Recording available'],
+      title: 'Nepathya Overnight Hackathon',
+      date: 'Magh 19th - 21st, 2076',
+      location: 'Nepathya College',
+      type: 'Hackathon',
+      attendees: 50,
+      description: '48-hour hackathon challenging teams to build innovative solutions for local community problems.',
+      image: '🏆',
+      highlights: ['24-hour coding', 'Cash prizes', 'Networking with experts'],
     },
   ];
 
   return (
+
     <div className="min-h-screen">
-  {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-primary/10 to-secondary/10">
+      {/* Events & Activities (Hero) Section */}
+      <section
+        className="py-20 relative"
+        style={{
+          backgroundImage: `linear-gradient(rgba(10,18,40,0.7), rgba(10,18,40,0.7)), url(${background})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -147,9 +159,9 @@ const Events = () => {
             className="text-center"
           >
             <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Events & <span className="text-primary">Activities</span>
+              <span className="text-white">Events</span> <span className="text-blue-400">&</span> <span className="text-white">Activities</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
               Join our exciting events designed to enhance your technical skills, expand your network, and advance your career in technology.
             </p>
           </motion.div>
@@ -157,12 +169,8 @@ const Events = () => {
       </section>
 
 
-
-
-
-
       {/* Past Events Gallery */}
-      <section className="py-20 bg-accent">
+      <section className="py-20 bg-gradient-to-br from-black via-gray-900 to-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -170,8 +178,8 @@ const Events = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-foreground mb-4">Past Events</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold text-white mb-4">Past Events</h2>
+            <p className="text-lg text-white max-w-2xl mx-auto">
               Take a look at our successful past events and their achievements.
             </p>
           </motion.div>
@@ -232,7 +240,16 @@ const Events = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-secondary">
+      <section
+        className="py-20 relative"
+        style={{
+          backgroundImage: `linear-gradient(rgba(10,18,40,0.85), rgba(10,18,40,0.85)), url(${heroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        {/* Overlay moved below content for better text visibility */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -240,46 +257,56 @@ const Events = () => {
             viewport={{ once: true }}
             className="text-white"
           >
-            <h2 className="text-3xl font-bold mb-4">Want to Organize an Event?</h2>
+            <h2 className="text-3xl font-bold mb-4">Want to participate in Upcoming events?</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Have an idea for a tech event or workshop? We'd love to collaborate with you to make it happen.
+              We regularly organize a variety of tech events, workshops, and competitions for students and enthusiasts. Stay tuned for exciting opportunities to learn, connect, and grow with the CSITAN community!
             </p>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary">
-              Contact Us
-            </Button>
+            <div
+              className="inline-block px-8 py-3 rounded-full font-bold text-lg bg-blue-400 text-black transition-colors duration-300 select-none cursor-default hover:bg-red-500 hover:text-white"
+              tabIndex={-1}
+            >
+              Stay Tuned
+            </div>
           </motion.div>
         </div>
       </section>
       {/* Stats Section (at end) */}
-      <section className="py-12 bg-white">
+  <section className="py-12 bg-gradient-to-br from-black via-gray-900 to-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-foreground mb-2">Event Statistics</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-white mb-2">Event <span className="text-blue-400">&</span> Statistics</h2>
+            <p className="text-lg text-white max-w-2xl mx-auto">
               Here are some key numbers that highlight our impact and engagement through various events and collaborations.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-            <div className="flex flex-col items-center justify-center p-6 bg-card rounded-lg shadow">
-              <Star className="w-10 h-10 text-primary mb-2" />
-              <span className="text-3xl font-bold text-foreground">
-                <AnimatedCounter to={18} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="flex flex-col items-center justify-center p-8 bg-white/10 rounded-xl shadow-lg border border-white/10">
+              <Star className="w-10 h-10 text-yellow-400 mb-2" />
+              <span className="text-4xl font-extrabold text-white">
+                <AnimatedCounter to={200} />+
               </span>
-              <span className="text-sm text-muted-foreground mt-1">Events Organized</span>
+              <span className="text-base text-white mt-1 font-medium">Events Organized</span>
             </div>
-            <div className="flex flex-col items-center justify-center p-6 bg-card rounded-lg shadow">
-              <Handshake className="w-10 h-10 text-secondary mb-2" />
-              <span className="text-3xl font-bold text-foreground">
-                <AnimatedCounter to={7} />
+            <div className="flex flex-col items-center justify-center p-8 bg-white/10 rounded-xl shadow-lg border border-white/10">
+              <Handshake className="w-10 h-10 text-blue-400 mb-2" />
+              <span className="text-4xl font-extrabold text-white">
+                <AnimatedCounter to={50} />+
               </span>
-              <span className="text-sm text-muted-foreground mt-1">Community Partnerships</span>
+              <span className="text-base text-white mt-1 font-medium">Community Partnerships</span>
             </div>
-            <div className="flex flex-col items-center justify-center p-6 bg-card rounded-lg shadow">
-              <UserCheck className="w-10 h-10 text-green-600 mb-2" />
-              <span className="text-3xl font-bold text-foreground">
-                <AnimatedCounter to={1200} />
+            <div className="flex flex-col items-center justify-center p-8 bg-white/10 rounded-xl shadow-lg border border-white/10">
+              <UserCheck className="w-10 h-10 text-green-400 mb-2" />
+              <span className="text-4xl font-extrabold text-white">
+                <AnimatedCounter to={3000} />+
               </span>
-              <span className="text-sm text-muted-foreground mt-1">Participants in Events</span>
+              <span className="text-base text-white mt-1 font-medium">Participants in Events</span>
+            </div>
+            <div className="flex flex-col items-center justify-center p-8 bg-white/10 rounded-xl shadow-lg border border-white/10">
+              <Briefcase className="w-10 h-10 text-purple-400 mb-2" />
+              <span className="text-4xl font-extrabold text-white">
+                <AnimatedCounter to={80} />+
+              </span>
+              <span className="text-base text-white mt-1 font-medium">Collaborations with Companies</span>
             </div>
           </div>
         </div>

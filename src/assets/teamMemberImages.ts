@@ -12,6 +12,8 @@ import executiveSimran from '@/assets/executive-simran.jpg';
 import executiveElish from '@/assets/executive-elish.jpg';
 import executiveGovinda from '@/assets/executive-govinda.jpg';
 import executiveSuraj from '@/assets/executive-suraj.jpg';
+import executiveSuhan from '@/assets/executive-suhan.jpg';
+import TeamPhoto from '@/assets/team-photo.jpg';
 
 export {
   presidentPhoto,
@@ -23,9 +25,11 @@ export {
   jointTreasurerJeevan,
   executiveAadarsh,
   executiveRomars,
+  executiveSuhan,
   executiveSupriya,
   executiveSimran,
   executiveElish,
   executiveGovinda,
   executiveSuraj,
+  TeamPhoto,
 };
