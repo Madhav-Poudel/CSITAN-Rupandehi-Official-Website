@@ -1,3 +1,4 @@
+import { FaFacebook, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import csitan4 from '@/assets/csitan4.jpg';
 import csitan5 from '@/assets/csitan5.jpg';
 import csitan6 from '@/assets/csitan6.jpg';
@@ -16,7 +17,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { MapPin, Phone, Mail, Facebook, Linkedin, Twitter, Send, Clock, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, Clock, MessageCircle } from 'lucide-react';
+import csitanLogo from '@/assets/csitan-logo.png'; // or use any avatar image you want
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -56,33 +58,33 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email Address',
-      details: 'info@csitanrupandehi.org.np',
-      description: 'Send us an email anytime',
+      details: 'rupandehicsitan@gmail.com',
+      description: 'Email us anytime, we look forward to your message!',
     },
     {
       icon: Phone,
       title: 'Phone Number',
-      details: '+977-9876543210',
-      description: 'Call us during office hours',
+      details: '+977-9849121059',
+      description: 'Call us anytime, we are happy to assist you!',
     },
     {
       icon: MapPin,
-      title: 'Office Location',
-      details: 'Butwal-12, Rupandehi, Nepal',
-      description: 'Visit our office',
+      title: 'Location',
+      details: 'Butwal, Rupandehi, Nepal',
+      description: 'Find us in the heart of Butwal, Rupandehi district.',
     },
     {
       icon: Clock,
-      title: 'Office Hours',
-      details: 'Sun - Fri: 9:00 AM - 5:00 PM',
-      description: 'We are available during these hours',
+      title: 'Availability',
+      details: 'Anytime',
+      description: 'Feel free to reach out to us whenever you need. We are always here to help!',
     },
   ];
 
   const socialLinks = [
-    { name: 'Facebook', icon: Facebook, href: '#', color: 'hover:text-blue-600' },
-    { name: 'LinkedIn', icon: Linkedin, href: '#', color: 'hover:text-blue-700' },
-    { name: 'Twitter', icon: Twitter, href: '#', color: 'hover:text-blue-400' },
+    { name: 'Facebook', href: 'https://www.facebook.com/csitanrupandehi', icon: FaFacebook },
+    { name: 'Instagram', href: 'https://www.instagram.com/csitanrupandehi/', icon: FaInstagram },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/company/csitanrupandehi/', icon: FaLinkedin },
   ];
 
   const faqs = [
@@ -278,30 +280,38 @@ const Contact = () => {
             >
 
               {/* Social Media */}
-              <Card className="rounded-3xl">
-                <CardHeader>
-                  <CardTitle>Follow Us</CardTitle>
-                  <p className="text-muted-foreground">Stay connected on social media for updates and community discussions.</p>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex space-x-4">
-                    {socialLinks.map((social) => {
-                      const Icon = social.icon;
-                      return (
-                        <motion.a
-                          key={social.name}
-                          href={social.href}
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                          className={`w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-muted-foreground transition-colors ${social.color}`}
-                        >
-                          <Icon className="h-5 w-5" />
-                        </motion.a>
-                      );
-                    })}
-                  </div>
-                </CardContent>
-              </Card>
+              <div className="relative">
+                <span className="absolute -top-6 left-1/2 -translate-x-1/2 bg-red-600 px-8 py-2 text-white font-bold rounded-full border-2 border-white shadow-lg z-10 text-lg uppercase tracking-wide">Get Connected</span>
+                <Card className="rounded-3xl border-2 border-primary pt-6">
+                  <CardHeader>
+                    <p className="text-muted-foreground">Stay connected on social media for updates and community discussions.</p>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex justify-center items-center gap-0 py-2">
+                      {socialLinks.map((social, idx) => {
+                        const Icon = social.icon;
+                        return (
+                          <>
+                            <motion.a
+                              key={social.name}
+                              href={social.href}
+                              whileHover={{ scale: 1.18, y: -4 }}
+                              whileTap={{ scale: 0.95 }}
+                              className="w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-md hover:shadow-lg transition-all group border border-gray-200 mx-1"
+                              style={{ boxShadow: '0 2px 8px 0 rgba(30, 64, 175, 0.10)' }}
+                            >
+                              <Icon className="w-9 h-9 text-red-600 group-hover:text-blue-700 transition-colors duration-200" />
+                            </motion.a>
+                            {idx < socialLinks.length - 1 && (
+                              <div className="h-10 w-px bg-gray-300 mx-1" />
+                            )}
+                          </>
+                        );
+                      })}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </motion.div>
           </div>
         </div>

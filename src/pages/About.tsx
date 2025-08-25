@@ -1,16 +1,17 @@
-import csitan1 from '@/assets/csitan1.jpg';
-import csitan2 from '@/assets/csitan2.jpg';
-import csitan3 from '@/assets/csitan3.jpg';
-import csitan4 from '@/assets/csitan4.jpg';
-import csitan5 from '@/assets/csitan5.jpg';
-import csitan6 from '@/assets/csitan6.jpg';
-import csitan7 from '@/assets/csitan7.jpg';
-import csitan8 from '@/assets/csitan8.jpg';
-import csitan9 from '@/assets/csitan9.jpg';
-import csitan10 from '@/assets/csitan10.jpg';
-import csitan11 from '@/assets/csitan11.jpg';
-import csitan12 from '@/assets/csitan12.jpg';
+import csitan1 from '@/assets/csitan1.webp';
+import csitan2 from '@/assets/csitan2.webp';
+import csitan3 from '@/assets/csitan3.webp';
+import csitan4 from '@/assets/csitan4.webp';
+import csitan5 from '@/assets/csitan5.webp';
+import csitan6 from '@/assets/csitan6.webp';
+import csitan7 from '@/assets/csitan7.webp';
+import csitan8 from '@/assets/csitan8.webp';
+import csitan9 from '@/assets/csitan9.webp';
+import csitan10 from '@/assets/csitan10.webp';
+import csitan11 from '@/assets/csitan11.webp';
+import csitan12 from '@/assets/csitan12.webp';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Target, Eye, Lightbulb, Users, Trophy, Calendar } from 'lucide-react';
 import csitanLogo from '@/assets/csitan-logo.png';
@@ -20,6 +21,9 @@ import pokharaLogo from '@/assets/Pokhara.png';
 import purwanchalLogo from '@/assets/Purwanchal.png';
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, []);
   const objectives = [
     {
       icon: Users,
