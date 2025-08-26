@@ -20,6 +20,7 @@ import { Label } from '@/components/ui/label';
 import { MapPin, Phone, Mail, Send, Clock, MessageCircle } from 'lucide-react';
 import csitanLogo from '@/assets/csitan-logo.png'; // or use any avatar image you want
 import { useState } from 'react';
+import emailjs from 'emailjs-com';
 import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
@@ -43,15 +44,34 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for your message. We'll get back to you soon.",
+    const serviceID = 'service_3srz8sq';
+    const templateID = 'template_omx6xke';
+    const userID = '0aKXUicBRjnhqUyof';
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+    };
+
+    emailjs.send(serviceID, templateID, templateParams, userID)
+      .then(() => {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for your message. We'll get back to you soon.",
+        });
+        setFormData({ name: '', email: '', message: '' });
+      })
+      .catch(() => {
+        toast({
+          title: "Error",
+          description: "There was a problem sending your message. Please try again later.",
+          variant: "destructive",
+        });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
       });
-      setFormData({ name: '', email: '', message: '' });
-      setIsSubmitting(false);
-    }, 1500);
   };
 
   const contactInfo = [
@@ -106,6 +126,7 @@ const Contact = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section
+        id="get-in-touch"
         className="py-20 relative bg-cover bg-center"
         style={{ backgroundImage: `url(${backgroundImg})` }}
       >
@@ -138,7 +159,7 @@ const Contact = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-black mb-4">
-              Get In <span className="text-red-500">Touch</span>
+              Get In <span className="text-[#CF4546]">Touch</span>
             </h2>
             <p className="text-lg text-black max-w-2xl mx-auto">
               Multiple ways to reach us. Choose what works best for you.
@@ -187,8 +208,9 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
               <Card className="rounded-3xl">
@@ -281,13 +303,18 @@ const Contact = () => {
 
               {/* Social Media */}
               <div className="relative">
-                <span className="absolute -top-6 left-1/2 -translate-x-1/2 bg-red-600 px-8 py-2 text-white font-bold rounded-full border-2 border-white shadow-lg z-10 text-lg uppercase tracking-wide">Get Connected</span>
+                <span
+                  className="absolute left-1/2 -translate-x-1/2 -top-6 sm:-top-7 bg-[#CF4546] px-4 py-1.5 sm:px-8 sm:py-2 text-white font-bold rounded-full border-2 border-white shadow-lg z-10 text-base sm:text-lg uppercase tracking-wide text-center max-w-[90vw] sm:max-w-xs truncate"
+                  style={{ width: 'fit-content' }}
+                >
+                  Get Connected
+                </span>
                 <Card className="rounded-3xl border-2 border-primary pt-6">
                   <CardHeader>
                     <p className="text-muted-foreground">Stay connected on social media for updates and community discussions.</p>
                   </CardHeader>
                   <CardContent>
-                    <div className="flex justify-center items-center gap-0 py-2">
+                    <div className="flex flex-col xs:flex-row sm:flex-row justify-center items-center gap-3 sm:gap-0 py-2">
                       {socialLinks.map((social, idx) => {
                         const Icon = social.icon;
                         return (
@@ -297,13 +324,13 @@ const Contact = () => {
                               href={social.href}
                               whileHover={{ scale: 1.18, y: -4 }}
                               whileTap={{ scale: 0.95 }}
-                              className="w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-md hover:shadow-lg transition-all group border border-gray-200 mx-1"
+                              className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center bg-white rounded-xl shadow-md hover:shadow-lg transition-all group border border-gray-200 mx-1"
                               style={{ boxShadow: '0 2px 8px 0 rgba(30, 64, 175, 0.10)' }}
                             >
-                              <Icon className="w-9 h-9 text-red-600 group-hover:text-blue-700 transition-colors duration-200" />
+                              <Icon className="w-8 h-8 sm:w-9 sm:h-9 text-[#CF4546] group-hover:text-[#1FADE4] transition-colors duration-200" />
                             </motion.a>
                             {idx < socialLinks.length - 1 && (
-                              <div className="h-10 w-px bg-gray-300 mx-1" />
+                              <div className="hidden sm:block h-10 w-px bg-gray-300 mx-1" />
                             )}
                           </>
                         );
@@ -346,7 +373,7 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="rounded-3xl ml-4">
+                <Card className="rounded-3xl ml-24">
                   <CardContent className="pt-6 ml-2">
                     <h3 className="text-lg font-semibold text-foreground mb-3 flex items-start ml-1">
                       <span className="mr-2 mt-1 text-primary">•</span>

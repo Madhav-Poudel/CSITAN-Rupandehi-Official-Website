@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import { FaFacebook, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import csitanLogo from '../assets/csitan-logo.png'; // ✅ Import logo here
 
@@ -15,9 +16,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: 'Facebook', href: '#', icon: Facebook },
-    { name: 'LinkedIn', href: '#', icon: Linkedin },
-    { name: 'Twitter', href: '#', icon: Twitter },
+    { name: 'Facebook', href: 'https://www.facebook.com/csitanrupandehi', icon: FaFacebook },
+    { name: 'Instagram', href: 'https://www.instagram.com/csitanrupandehi/', icon: FaInstagram },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/company/csitanrupandehi/', icon: FaLinkedin },
   ];
 
   return (
@@ -80,7 +81,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-primary" />
-                <span className="text-muted-foreground text-sm">info@csitanrupandehi.org.np</span>
+                <span className="text-muted-foreground text-sm">rupandehicsitan@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-primary" />
@@ -99,21 +100,28 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="space-y-4"
+            className="space-y-2 text-left"
           >
-            <h3 className="text-lg font-semibold">Follow Us</h3>
-            <div className="flex space-x-4">
-              {socialLinks.map((social) => {
+            <h3 className="text-lg font-semibold mb-1">Stay Connected</h3>
+            <div className="flex items-center gap-1 justify-start">
+              {socialLinks.map((social, idx) => {
                 const Icon = social.icon;
                 return (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                    aria-label={social.name}
-                  >
-                    <Icon className="h-5 w-5" />
-                  </a>
+                  <>
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-9 h-9 flex items-center justify-center rounded-lg shadow-sm hover:shadow-md transition-all group bg-transparent"
+                      aria-label={social.name}
+                    >
+                      <Icon className="w-5 h-5 text-[#CF4546] group-hover:text-[#1FADE4] transition-colors duration-200" />
+                    </a>
+                    {idx < socialLinks.length - 1 && (
+                      <div className="h-4 w-px bg-gray-300" />
+                    )}
+                  </>
                 );
               })}
             </div>

@@ -4,7 +4,7 @@ import vicePresidentLaxmi from '@/assets/vicePresident-laxmi.jpg';
 import treasurerPhoto from '@/assets/treasurer.jpg';
 import secretaryPhoto from '@/assets/Secretary.jpg';
 import jointTreasurerSmriti from '@/assets/jointTreasurer-smriti.jpg';
-import jointTreasurerJeevan from '@/assets/jointTreasurer.jpg';
+import jointTreasurerJeevan from '@/assets/jointTreasurer-jeevan.jpg';
 import executiveAadarsh from '@/assets/executive-aadarsh.jpg';
 import executiveRomars from '@/assets/executive-romars.jpg';
 import executiveSupriya from '@/assets/executive-supriya.jpg';

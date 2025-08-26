@@ -7,6 +7,9 @@ import webImage from '@/assets/web.jpg';
 import presidentImg from '@/assets/president.jpg';
 import vicePresidentLaxmiImg from '@/assets/vicePresident-laxmi.jpg';
 import treasurerImg from '@/assets/treasurer.jpg';
+import { Link } from 'react-router-dom';
+
+import FloatingITIconsBG from '@/components/FloatingITIconsBG';
 
 const Home = () => {
   const testimonials = [
@@ -40,21 +43,22 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section
-  className="relative h-screen flex items-center bg-cover bg-center bg-no-repeat"
+        className="relative h-[100vh] flex items-center justify-center bg-cover bg-center bg-no-repeat w-full overflow-hidden"
         style={{
           backgroundImage: `url(${webImage})`,
         }}
       >
-  {/* Transparent dark overlay */}
-  {/* Dark overlay in front of bg image */}
-  <div className="absolute inset-0 bg-black/80" style={{zIndex: 2}}></div>
-  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20" style={{zIndex: 3}}></div>
-  <div className="relative z-20 text-white px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full max-w-4xl mx-auto text-center">
+  {/* Overlay to reduce background opacity for better text readability */}
+  <div className="absolute inset-0 bg-black/80 z-0" />
+  {/* Floating IT Icons Animated BG */}
+  <FloatingITIconsBG />
+        {/* Content centered above animation */}
+        <div className="relative z-10 text-white px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center w-full max-w-4xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-lg"
           >
             Learning Today,
             <br className="hidden sm:block" />
@@ -65,7 +69,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl sm:text-2xl mb-8 max-w-3xl leading-relaxed"
+            className="text-xl sm:text-2xl mb-8 max-w-3xl leading-relaxed drop-shadow"
           >
             CSIT Association of Nepal - Rupandehi is a non-profit organization dedicated to bridging the gap between CSIT students, universities, and the industry through meaningful and impactful programs and initiatives.
           </motion.p>
@@ -77,25 +81,34 @@ const Home = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             {/* Join Us Button */}
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-secondary text-primary-foreground transition-colors duration-300"
+            <a
+              href="https://www.facebook.com/csitan.rupandehi/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Join Us <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-secondary text-primary-foreground transition-colors duration-300"
+              >
+                Join Us <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </a>
 
             {/* Contact Us Button - always white text */}
             <motion.div whileHover={{ scale: 1.05 }} transition={{ type: 'spring', stiffness: 300 }}>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-black border-white hover:text-black hover:border-primary hover:shadow-lg transition-all duration-300"
-              >
-                Contact Us
-              </Button>
+              <a href="/contact#get-in-touch">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-black border-white hover:text-black hover:border-primary hover:shadow-lg transition-all duration-300"
+                >
+                  Contact Us
+                </Button>
+              </a>
             </motion.div>
           </motion.div>
-          <div className="flex justify-center mt-14">
+          {/* Since 2017 badge below the buttons */}
+          <div className="flex justify-center mt-8">
             <span className="bg-primary text-white text-2xl font-bold px-10 py-3 rounded-full shadow-lg border-4 border-white select-none tracking-wide">
               Since 2017
             </span>
@@ -117,7 +130,7 @@ const Home = () => {
                 <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4">
                   <Target className="h-6 w-6 text-primary-foreground" />
                 </div>
-                <h2 className="text-3xl font-bold text-red-500">Who We Are</h2>
+                <h2 className="text-3xl font-bold text-[#CF4546]">Who We Are</h2>
               </div>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 CSITAN Rupandehi is a regional body of CSIT Association of Nepal, established to
@@ -138,9 +151,11 @@ const Home = () => {
                   <span>Knowledge Sharing</span>
                 </li>
               </ul>
-              <Button className="bg-primary hover:bg-secondary text-primary-foreground">
-                Learn More <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Link to="/about">
+                <Button className="bg-primary hover:bg-secondary text-primary-foreground">
+                  Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </motion.div>
 
             <motion.div
@@ -224,13 +239,19 @@ const Home = () => {
               Be part of a vibrant community of technology enthusiasts and advance your career with
               us.
             </p>
-            <Button
-              size="lg"
-              variant="outline"
-              className="text-black border-white hover:bg-red-500 hover:text-white"
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdGZHKjSLPeYUcUXHEmR2fo066kFRpk2AjORwfW5F0XidLw0Q/closedform?pli=1"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Join CSITAN Rupandehi Today
-            </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-black border-white hover:bg-[#CF4546] hover:text-white"
+              >
+                Join CSITAN Rupandehi Today
+              </Button>
+            </a>
           </motion.div>
         </div>
       </section>

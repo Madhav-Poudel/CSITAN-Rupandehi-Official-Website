@@ -159,7 +159,7 @@ const Events = () => {
             className="text-center"
           >
             <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              <span className="text-white">Events</span> <span className="text-blue-400">&</span> <span className="text-white">Activities</span>
+              <span className="text-white">Events</span> <span className="text-[#1FADE4]">&</span> <span className="text-white">Activities</span>
             </h1>
             <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
               Join our exciting events designed to enhance your technical skills, expand your network, and advance your career in technology.
@@ -262,7 +262,7 @@ const Events = () => {
               We regularly organize a variety of tech events, workshops, and competitions for students and enthusiasts. Stay tuned for exciting opportunities to learn, connect, and grow with the CSITAN community!
             </p>
             <div
-              className="inline-block px-8 py-3 rounded-full font-bold text-lg bg-blue-400 text-black transition-colors duration-300 select-none cursor-default hover:bg-red-500 hover:text-white"
+              className="inline-block px-8 py-3 rounded-full font-bold text-lg bg-[#1FADE4] text-black transition-colors duration-300 select-none cursor-default hover:bg-[#CF4546] hover:text-white"
               tabIndex={-1}
             >
               Stay Tuned
@@ -274,7 +274,7 @@ const Events = () => {
   <section className="py-12 bg-gradient-to-br from-black via-gray-900 to-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-white mb-2">Event <span className="text-blue-400">&</span> Statistics</h2>
+            <h2 className="text-3xl font-bold text-white mb-2">Event <span className="text-[#1FADE4]">&</span> Statistics</h2>
             <p className="text-lg text-white max-w-2xl mx-auto">
               Here are some key numbers that highlight our impact and engagement through various events and collaborations.
             </p>
@@ -288,7 +288,7 @@ const Events = () => {
               <span className="text-base text-white mt-1 font-medium">Events Organized</span>
             </div>
             <div className="flex flex-col items-center justify-center p-8 bg-white/10 rounded-xl shadow-lg border border-white/10">
-              <Handshake className="w-10 h-10 text-blue-400 mb-2" />
+              <Handshake className="w-10 h-10 text-[#1FADE4] mb-2" />
               <span className="text-4xl font-extrabold text-white">
                 <AnimatedCounter to={50} />+
               </span>

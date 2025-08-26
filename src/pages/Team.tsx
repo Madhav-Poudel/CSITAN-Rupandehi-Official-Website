@@ -31,14 +31,14 @@ const Team = () => {
   // Executive Members
   // Executive structure: 1 President, 2 Vice Presidents, 1 Treasurer, 1 Secretary, 7 Executive Members
   const executiveMembers = [
-    { name: 'Suhan Shrestha', post: 'Executive Member', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: executiveSuhan },
-    { name: 'Aadarsh Paudel', post: 'Executive Member', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: executiveAadarsh },
-    { name: 'Romars Bhusal', post: 'Executive Member', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: executiveRomars },
-    { name: 'Supriya Shrestha', post: 'Executive Member', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: executiveSupriya },
-    { name: 'Simran Pokhrel', post: 'Executive Member', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: executiveSimran },
-    { name: 'Elish Neupane', post: 'Executive Member', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: executiveElish },
-    { name: 'Govinda Sagar Bhusal', post: 'Executive Member', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: executiveGovinda },
-    { name: 'Suraj Agrahari', post: 'Executive Member', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: executiveSuraj },
+    { name: 'Suhan Shrestha', post: 'Executive Member', social: { facebook: 'https://www.facebook.com/suhan.stha09', linkedin: 'https://www.linkedin.com/in/suhan-shrestha-9223b1247/', twitter: '#' }, photo: executiveSuhan },
+    { name: 'Aadarsh Paudel', post: 'Executive Member', social: { facebook: 'https://www.facebook.com/aadarsh.paudel.5', linkedin: 'https://www.linkedin.com/in/adarsh-paudel-54284a302/', twitter: '#' }, photo: executiveAadarsh },
+    { name: 'Romars Bhusal', post: 'Executive Member', social: { facebook: 'https://www.facebook.com/romars.bhusal', linkedin: 'https://www.linkedin.com/in/romars-bhusal-837240311/', twitter: '#' }, photo: executiveRomars },
+    { name: 'Supriya Shrestha', post: 'Executive Member', social: { facebook: 'https://www.facebook.com/supriya.shrestha.277953', linkedin: 'https://www.linkedin.com/in/supriya-shrestha-5407aa310/', twitter: '#' }, photo: executiveSupriya },
+    { name: 'Simran Pokhrel', post: 'Executive Member', social: { facebook: 'https://www.facebook.com/simran.pokhrel.761853', linkedin: 'https://www.linkedin.com/in/simran-pokhrel-b68b0b331/', twitter: '#' }, photo: executiveSimran },
+    { name: 'Elish Neupane', post: 'Executive Member', social: { facebook: 'https://www.facebook.com/alish.neupane.16', linkedin: '#', twitter: '#' }, photo: executiveElish },
+    { name: 'Govinda Sagar Bhusal', post: 'Executive Member', social: { facebook: 'https://www.facebook.com/aayush.bhusal.50', linkedin: 'https://www.linkedin.com/in/govinda-sagar-bhusal-3685362a8/', twitter: '#' }, photo: executiveGovinda },
+    { name: 'Suraj Agrahari', post: 'Executive Member', social: { facebook: 'https://www.facebook.com/suraz.agrahari.2025', linkedin: 'https://www.linkedin.com/in/suraj-agrahari-982a272a9/', twitter: '#' }, photo: executiveSuraj },
   ];
 
   // Top officers
@@ -52,17 +52,17 @@ const Team = () => {
     }
   };
   const vicePresidents = [
-    { name: 'Laxmi Khanal', post: 'Vice President', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: vicePresidentLaxmi },
-    { name: 'Aayush Chapagain', post: 'Vice President', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: vicePresidentAayush },
+    { name: 'Laxmi Khanal', post: 'Vice President', social: { facebook: '#', linkedin: 'https://www.linkedin.com/in/laxmi-khanal-154830283/', twitter: '#' }, photo: vicePresidentLaxmi },
+    { name: 'Aayush Chapagain', post: 'Vice President', social: { facebook: 'https://www.facebook.com/facebook.aayushchapagain', linkedin: 'https://www.linkedin.com/in/aayushchapagain/', twitter: '#' }, photo: vicePresidentAayush },
   ];
-  const treasurer = { name: 'Nirmal Kharal', post: 'Treasurer', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: treasurerPhoto };
-  const secretary = { name: 'Kalpit Nepal', post: 'Secretary', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: secretaryPhoto };
+  const treasurer = { name: 'Nirmal Kharal', post: 'Treasurer', social: { facebook: 'https://www.facebook.com/imnirmalkharal', linkedin: 'https://www.linkedin.com/in/kharalnirmal/', twitter: '#' }, photo: treasurerPhoto };
+  const secretary = { name: 'Kalpit Nepal', post: 'Secretary', social: { facebook: 'https://www.facebook.com/kalpit.nepal.77', linkedin: 'https://www.linkedin.com/in/kalpit-nepal-0086aa331/', twitter: '#' }, photo: secretaryPhoto };
 
   // Senior Members
   // 2 Joint Secretaries
   const jointSecretaries = [
-    { name: 'Smiriti Neupane', post: 'Joint Secretary', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: jointTreasurerSmriti },
-    { name: 'Jeevan Ghimire', post: 'Joint Secretary', social: { facebook: '#', linkedin: '#', twitter: '#' }, photo: jointTreasurerJeevan },
+    { name: 'Smriti Neupane', post: 'Joint Secretary', social: { facebook: 'https://www.facebook.com/smirti.neupane.921', linkedin: 'https://www.linkedin.com/in/smriti-neupane01/', twitter: '#' }, photo: jointTreasurerSmriti },
+    { name: 'Jeevan Ghimire', post: 'Joint Secretary', social: { facebook: 'https://www.facebook.com/imjeevanghimire', linkedin: 'https://www.linkedin.com/in/imjeevanghimire/', twitter: '#' }, photo: jointTreasurerJeevan },
   ];
 
   // College Representatives
@@ -145,13 +145,13 @@ const Team = () => {
         <CardContent>
           <div className="flex justify-center space-x-3">
             <a href={member.social.facebook || '#'} className="hover:scale-110 transition-transform" target="_blank" rel="noopener noreferrer">
-              <FaFacebook className="h-6 w-6 text-red-600" />
+              <FaFacebook className="h-6 w-6 text-[#CF4546]" />
             </a>
             <a href={member.social.linkedin || '#'} className="hover:scale-110 transition-transform" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin className="h-6 w-6 text-red-600" />
+              <FaLinkedin className="h-6 w-6 text-[#CF4546]" />
             </a>
             <a href={member.social.github || '#'} className="hover:scale-110 transition-transform" target="_blank" rel="noopener noreferrer">
-              <FaGithub className="h-6 w-6 text-red-600" />
+              <FaGithub className="h-6 w-6 text-[#CF4546]" />
             </a>
           </div>
         </CardContent>
@@ -222,13 +222,13 @@ const Team = () => {
                 <Badge variant="secondary" className="mb-2 text-lg py-1 px-3">{president.post}</Badge>
                 <div className="flex justify-center space-x-4 mt-3">
                   <a href={president.social.facebook} className="hover:scale-110 transition-transform" target="_blank" rel="noopener noreferrer">
-                    <FaFacebook className="h-7 w-7 text-red-600" />
+                    <FaFacebook className="h-7 w-7 text-[#CF4546]" />
                   </a>
                   <a href={president.social.linkedin} className="hover:scale-110 transition-transform" target="_blank" rel="noopener noreferrer">
-                    <FaLinkedin className="h-7 w-7 text-red-600" />
+                    <FaLinkedin className="h-7 w-7 text-[#CF4546]" />
                   </a>
                   <a href={president.social.github} className="hover:scale-110 transition-transform" target="_blank" rel="noopener noreferrer">
-                    <FaGithub className="h-7 w-7 text-red-600" />
+                    <FaGithub className="h-7 w-7 text-[#CF4546]" />
                   </a>
                 </div>
               </div>
@@ -436,10 +436,17 @@ const Team = () => {
       {/* Join Our Team CTA */}
       <section
         className="py-20 relative overflow-hidden"
-        style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
-  <div className="absolute inset-0 bg-blue-800/80" style={{ zIndex: 1 }}></div>
-  <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative" style={{ zIndex: 2 }}>
+        {/* Lazy loaded background image for better performance */}
+        <img
+          src={heroBg}
+          alt="Our Team Background"
+          className="absolute inset-0 w-full h-full object-cover object-center z-0"
+          loading="lazy"
+          style={{ pointerEvents: 'none', userSelect: 'none' }}
+        />
+  <div className="absolute inset-0" style={{ background: '#1FADE4CC', zIndex: 1 }}></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative" style={{ zIndex: 2 }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
