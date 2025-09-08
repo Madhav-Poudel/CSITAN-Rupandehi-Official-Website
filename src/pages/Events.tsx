@@ -262,7 +262,7 @@ const Events = () => {
               We regularly organize a variety of tech events, workshops, and competitions for students and enthusiasts. Stay tuned for exciting opportunities to learn, connect, and grow with the CSITAN community!
             </p>
             <div
-              className="inline-block px-8 py-3 rounded-full font-bold text-lg bg-[#1FADE4] text-black transition-colors duration-300 select-none cursor-default hover:bg-[#CF4546] hover:text-white"
+              className="inline-block px-8 py-3 rounded-full font-bold text-lg bg-[#1FADE4] text-black select-none cursor-default"
               tabIndex={-1}
             >
               Stay Tuned

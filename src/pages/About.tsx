@@ -328,8 +328,6 @@ const About = () => {
               ))}
             </div>
 
-
-
           </div>
         </div>
       </section>
@@ -351,41 +349,33 @@ const About = () => {
               local computer science and IT communities with dedication and excellence.
             </p>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center">
-            {regionalCommittees.map((committee, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="flex flex-col items-center"
-              >
-                <div className="rounded-[32px] border-2 border-primary bg-white shadow-2xl flex items-center justify-center w-36 h-36 mb-2 transition-transform hover:scale-105 ring-2 ring-primary/20">
-                  <img src={committee.logo} alt="Regional Committee Logo" className="w-28 h-28 object-contain drop-shadow-lg" />
-                </div>
-                {committee.region === 'Rupandehi' ? (
-                  <>
-                    <span className="text-sm font-semibold text-yellow-500 text-center mt-1">CSIT Association of Nepal</span>
-                    <span className="text-sm font-semibold text-yellow-500 text-center mt-1">Rupandehi</span>
-                  </>
-                ) : (
-                  <>
-                    <span className="text-sm font-semibold text-yellow-500 text-center mt-1">CSIT Association of Nepal</span>
-                    {committee.region && (
-                      <span className="text-sm font-semibold text-yellow-500 text-center mt-1">{committee.region}</span>
-                    )}
-                  </>
-                )}
-              </motion.div>
-            ))}
+          <div className="flex justify-center">
+            <div className="w-full max-w-5xl rounded-3xl border-2 border-primary/60 bg-gradient-to-br from-[#1FADE4]/10 to-[#CF4546]/10 shadow-2xl p-8 md:p-12 flex gap-8 justify-center items-center">
+              {regionalCommittees.map((committee, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="flex flex-col items-center w-40"
+                >
+                  <div className={`rounded-[32px] border-2 border-primary bg-white shadow-xl flex items-center justify-center w-36 h-36 mb-2 transition-transform hover:scale-105 ring-2 ring-primary/20${idx === 0 ? ' -mt-3' : ''}`}> 
+                    <img src={committee.logo} alt="Regional Committee Logo" className="w-28 h-28 object-contain drop-shadow-lg" />
+                  </div>
+                  <span className="text-sm font-semibold text-white text-center mt-1">CSIT Association of Nepal</span>
+                  {committee.region && (
+                    <span className="text-sm font-semibold text-white text-center mt-1">{committee.region}</span>
+                  )}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
     </div>
   );
 };
-
 
 // Blurred skeleton loader for gallery images
 function GalleryImage({ src, alt, idx }: { src: string; alt: string; idx: number }) {
@@ -407,5 +397,4 @@ function GalleryImage({ src, alt, idx }: { src: string; alt: string; idx: number
     </div>
   );
 }
-
 export default About;

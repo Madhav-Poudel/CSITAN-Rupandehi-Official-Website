@@ -1,8 +1,22 @@
+
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Users, Star, MessageCircle } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 export default function JoinUsDialog({ open, onOpenChange }: { open: boolean, onOpenChange: (v: boolean) => void }) {
+  const { toast } = useToast();
+
+  const handleMembershipClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    toast({
+      title: 'Membership Form Coming Soon!',
+      description: 'The membership form will be available here soon. Please stay tuned.',
+      duration: 3500,
+    });
+    onOpenChange(false);
+  };
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-md">
@@ -25,7 +39,7 @@ export default function JoinUsDialog({ open, onOpenChange }: { open: boolean, on
           <li className="flex items-center gap-2"><MessageCircle className="w-4 h-4 text-[#1FADE4]" /> Get mentorship & career support</li>
         </ul>
         <div className="flex flex-col sm:flex-row gap-3 mt-2">
-          <a href="https://forms.gle/your-form-link" target="_blank" rel="noopener noreferrer" className="flex-1">
+          <a href="#" className="flex-1" onClick={handleMembershipClick}>
             <Button className="w-full bg-[#1FADE4] hover:bg-[#CF4546] text-white font-semibold">Membership Form</Button>
           </a>
           <a href="https://www.facebook.com/csitan.rupandehi/" target="_blank" rel="noopener noreferrer" className="flex-1">

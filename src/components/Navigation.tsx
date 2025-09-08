@@ -64,6 +64,10 @@ const Navigation = () => {
                       "px-4 py-2 text-sm font-medium transition-colors duration-200 " +
                       (active ? "text-[#CF4546]" : "text-gray-700 hover:text-[#CF4546]")
                     }
+                    onClick={isActive(item.href) ? (e) => {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } : undefined}
                   >
                     {item.name}
                   </Link>

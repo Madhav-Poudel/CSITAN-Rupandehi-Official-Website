@@ -15,24 +15,24 @@ const Home = () => {
   const testimonials = [
     {
       name: 'Madhav Poudel',
-      role: 'Software Engineer',
-      company: 'Tech Corp Nepal',
+      role: 'President',
+      company: 'CSIT Association of Nepal - Rupandehi',
       content:
         'CSITAN Rupandehi provided me with incredible networking opportunities and helped shape my career in technology.',
       photo: presidentImg,
     },
     {
       name: 'Laxmi Khanal',
-      role: 'Data Scientist',
-      company: 'Innovation Labs',
+      role: 'Vice President',
+      company: 'CSIT Association of Nepal - Rupandehi',
       content:
         'The events organized by CSITAN were instrumental in keeping me updated with latest technology trends.',
       photo: vicePresidentLaxmiImg,
     },
     {
       name: 'Nirmal Kharal',
-      role: 'Tech Entrepreneur',
-      company: 'StartupX',
+      role: 'Treasurer',
+      company: 'CSIT Association of Nepal - Rupandehi',
       content:
         'Being part of CSITAN community opened doors to mentorship and collaboration opportunities.',
       photo: treasurerImg,
