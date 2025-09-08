@@ -62,7 +62,8 @@ const Contact = () => {
         });
         setFormData({ name: '', email: '', message: '' });
       })
-      .catch(() => {
+      .catch((error) => {
+        console.error('EmailJS error:', error);
         toast({
           title: "Error",
           description: "There was a problem sending your message. Please try again later.",
