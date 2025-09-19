@@ -1,11 +1,13 @@
+// ...existing imports...
+import './events-modal-scrollbar-hide.css';
 import background from '@/assets/background.jpg';
-import waveDivider from '@/assets/wave-divider.svg';
 import heroImage from '@/assets/hero-bg.jpg';
+import aiEventImage from '@/assets/The Way of Asking AI.jpg';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, MapPin, Users, Clock, ExternalLink, Star, Handshake, UserCheck, Briefcase } from 'lucide-react';
+import { Calendar, Clock, MonitorSmartphone, MapPin, Users, Star, Handshake, UserCheck, Briefcase } from 'lucide-react';
 import { useEffect, useState } from 'react';
 // Animated Counter Component
 const AnimatedCounter = ({ to, duration = 1.5 }: { to: number, duration?: number }) => {
@@ -30,6 +32,19 @@ const AnimatedCounter = ({ to, duration = 1.5 }: { to: number, duration?: number
 };
 
 const Events = () => {
+  const [showDetails, setShowDetails] = useState(false);
+
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    if (showDetails) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showDetails]);
   const upcomingEvents = [
     {
       id: 1,
@@ -168,6 +183,84 @@ const Events = () => {
         </div>
       </section>
 
+
+      {/* Upcoming Events Section */}
+      {showDetails && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80"
+          onClick={() => setShowDetails(false)}
+        >
+          <div
+            className="bg-gradient-to-br from-[#181A20] via-[#23272F] to-[#1FADE4]/10 rounded-3xl p-0 max-w-lg w-full shadow-2xl relative overflow-y-auto max-h-[90vh] custom-scrollbar-hide border border-[#1FADE4]/30"
+            onClick={e => e.stopPropagation()}
+          >
+            <button className="absolute top-4 right-4 text-white text-2xl bg-[#23272F] rounded-full w-10 h-10 flex items-center justify-center hover:bg-[#1FADE4] transition" onClick={() => setShowDetails(false)}>&times;</button>
+            <div className="flex flex-col items-center">
+              <img src={aiEventImage} alt="The Way of Asking AI" className="rounded-t-3xl w-full object-contain" style={{maxWidth: '100%'}} />
+              <div className="px-6 py-6 w-full">
+                <h2 className="text-3xl font-extrabold text-[#1FADE4] mb-2 text-center">The Way of Asking AI</h2>
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-4">
+                  <div className="bg-[#23272F] rounded-xl px-4 py-2 text-white text-sm font-semibold flex items-center gap-2 shadow">
+                    <Calendar className="w-4 h-4 text-[#1FADE4]" /> <span>4th Asoj, 2082</span>
+                  </div>
+                  <div className="bg-[#23272F] rounded-xl px-4 py-2 text-white text-sm font-semibold flex items-center gap-2 shadow">
+                    <Clock className="w-4 h-4 text-[#1FADE4]" /> <span>8 PM</span>
+                  </div>
+                  <div className="bg-[#23272F] rounded-xl px-4 py-2 text-white text-sm font-semibold flex items-center gap-2 shadow">
+                    <MonitorSmartphone className="w-4 h-4 text-[#1FADE4]" /> <span>Google Meet</span>
+                  </div>
+                </div>
+                <p className="text-base text-white mb-4 text-center">
+                  CSITAN Rupandehi proudly presents a virtual event dedicated to Prompting—the skill redefining how we interact with AI and technology.<br/>
+                  Learn the art of crafting powerful prompts, explore real-world use cases, and see how Prompting can amplify creativity and productivity.<br/>
+                  Don’t miss this chance to gain practical skills and insights to master the future of AI.
+                </p>
+                <div className="mt-4 mb-2 text-center">
+                  <h3 className="text-lg font-bold text-[#1FADE4] mb-1">Speaker</h3>
+                  <div className="bg-[#23272F] rounded-xl px-4 py-3 inline-block shadow">
+                    <p className="text-base text-white font-semibold mb-1">Ms. Prashidika Tiwari</p>
+                    <p className="text-sm text-[#1FADE4] mb-1">AI/ML Developer</p>
+                    <p className="text-sm text-white">Expertise: Generative AI, Reinforcement Learning, Intelligent Systems Development</p>
+                    <p className="text-sm text-white">Passionate about human-centered AI applications. Expect an impactful and engaging learning journey!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+  <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold text-white mb-4">Upcoming Events</h2>
+            <p className="text-lg text-white max-w-2xl mx-auto">
+              Stay tuned for our latest sessions and workshops!
+            </p>
+          </motion.div>
+          <div className="flex justify-center">
+            <Card className="mx-auto shadow-2xl bg-[#181A20] border border-[#23272F]" style={{width: '320px', maxWidth: '100%'}}>
+              <CardHeader>
+                <img src={aiEventImage} alt="The Way of Asking AI" className="rounded-2xl object-contain bg-black mb-4" style={{width: '280px', maxWidth: '100%'}} />
+                <CardTitle className="text-2xl text-[#1FADE4]">The Way of Asking AI</CardTitle>
+                <CardDescription className="text-base text-muted-foreground mt-2">An interactive session on how to ask better questions to AI and get the most out of modern tools.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex gap-4 mt-4">
+                  <Button className="bg-[#1FADE4] hover:bg-[#0D6EAF] text-white font-semibold" onClick={() => setShowDetails(true)}>Read More</Button>
+                  <a href="https://forms.gle/XPk2jAwEGdyGju6K6" target="_blank" rel="noopener noreferrer">
+                    <Button className="bg-[#23272F] hover:bg-[#1FADE4] text-white font-semibold border border-[#1FADE4]">Register</Button>
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
 
       {/* Past Events Gallery */}
       <section className="py-20 bg-gradient-to-br from-black via-gray-900 to-gray-800">

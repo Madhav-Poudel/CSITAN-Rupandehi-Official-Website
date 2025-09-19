@@ -1,0 +1,7 @@
+/* Hide scrollbar for modal content */
+.custom-scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+}
+.custom-scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}

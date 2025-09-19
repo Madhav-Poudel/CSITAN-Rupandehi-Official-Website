@@ -350,25 +350,27 @@ const About = () => {
             </p>
           </motion.div>
           <div className="flex justify-center">
-            <div className="w-full max-w-5xl rounded-3xl border-2 border-primary/60 bg-gradient-to-br from-[#1FADE4]/10 to-[#CF4546]/10 shadow-2xl p-8 md:p-12 flex gap-8 justify-center items-center">
-              {regionalCommittees.map((committee, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="flex flex-col items-center w-40"
-                >
-                  <div className={`rounded-[32px] border-2 border-primary bg-white shadow-xl flex items-center justify-center w-36 h-36 mb-2 transition-transform hover:scale-105 ring-2 ring-primary/20${idx === 0 ? ' -mt-3' : ''}`}> 
-                    <img src={committee.logo} alt="Regional Committee Logo" className="w-28 h-28 object-contain drop-shadow-lg" />
-                  </div>
-                  <span className="text-sm font-semibold text-white text-center mt-1">CSIT Association of Nepal</span>
-                  {committee.region && (
-                    <span className="text-sm font-semibold text-white text-center mt-1">{committee.region}</span>
-                  )}
-                </motion.div>
-              ))}
+            <div className="w-full max-w-5xl rounded-3xl border-2 border-primary/60 bg-gradient-to-br from-[#1FADE4]/10 to-[#CF4546]/10 shadow-2xl p-4 sm:p-8 md:p-12">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-8 justify-center items-center">
+                {regionalCommittees.map((committee, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="flex flex-col items-center w-full"
+                  >
+                    <div className={`rounded-[32px] border-2 border-primary bg-white shadow-xl flex items-center justify-center w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 mb-2 transition-transform hover:scale-105 ring-2 ring-primary/20${idx === 0 ? ' -mt-3' : ''}`}> 
+                      <img src={committee.logo} alt="Regional Committee Logo" className="w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain drop-shadow-lg" />
+                    </div>
+                    <span className="text-xs sm:text-sm font-semibold text-white text-center mt-1">CSIT Association of Nepal</span>
+                    {committee.region && (
+                      <span className="text-xs sm:text-sm font-semibold text-white text-center mt-1">{committee.region}</span>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

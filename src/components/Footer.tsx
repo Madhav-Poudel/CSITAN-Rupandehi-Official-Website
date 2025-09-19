@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { FaFacebook, FaLinkedin, FaInstagram } from 'react-icons/fa';
@@ -107,9 +108,8 @@ const Footer = () => {
               {socialLinks.map((social, idx) => {
                 const Icon = social.icon;
                 return (
-                  <>
+                  <React.Fragment key={social.name}>
                     <a
-                      key={social.name}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -121,7 +121,7 @@ const Footer = () => {
                     {idx < socialLinks.length - 1 && (
                       <div className="h-4 w-px bg-gray-300" />
                     )}
-                  </>
+                  </React.Fragment>
                 );
               })}
             </div>
