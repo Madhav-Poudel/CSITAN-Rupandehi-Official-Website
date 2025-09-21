@@ -1,5 +1,5 @@
 // ...existing imports...
-import './events-modal-scrollbar-hide.css';
+  import './events-modal-scrollbar-hide.css';
 import background from '@/assets/background.jpg';
 import heroImage from '@/assets/hero-bg.jpg';
 import aiEventImage from '@/assets/The Way of Asking AI.jpg';
@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, Clock, MonitorSmartphone, MapPin, Users, Star, Handshake, UserCheck, Briefcase } from 'lucide-react';
+import { Calendar, MonitorSmartphone, MapPin, Users, Star, Handshake, UserCheck, Briefcase } from 'lucide-react';
 import { useEffect, useState } from 'react';
 // Animated Counter Component
 const AnimatedCounter = ({ to, duration = 1.5 }: { to: number, duration?: number }) => {
@@ -203,9 +203,7 @@ const Events = () => {
                   <div className="bg-[#23272F] rounded-xl px-4 py-2 text-white text-sm font-semibold flex items-center gap-2 shadow">
                     <Calendar className="w-4 h-4 text-[#1FADE4]" /> <span>4th Asoj, 2082</span>
                   </div>
-                  <div className="bg-[#23272F] rounded-xl px-4 py-2 text-white text-sm font-semibold flex items-center gap-2 shadow">
-                    <Clock className="w-4 h-4 text-[#1FADE4]" /> <span>8 PM</span>
-                  </div>
+                  {/* Time removed as requested */}
                   <div className="bg-[#23272F] rounded-xl px-4 py-2 text-white text-sm font-semibold flex items-center gap-2 shadow">
                     <MonitorSmartphone className="w-4 h-4 text-[#1FADE4]" /> <span>Google Meet</span>
                   </div>
@@ -243,21 +241,36 @@ const Events = () => {
             </p>
           </motion.div>
           <div className="flex justify-center">
-            <Card className="mx-auto shadow-2xl bg-[#181A20] border border-[#23272F]" style={{width: '320px', maxWidth: '100%'}}>
-              <CardHeader>
-                <img src={aiEventImage} alt="The Way of Asking AI" className="rounded-2xl object-contain bg-black mb-4" style={{width: '280px', maxWidth: '100%'}} />
-                <CardTitle className="text-2xl text-[#1FADE4]">The Way of Asking AI</CardTitle>
-                <CardDescription className="text-base text-muted-foreground mt-2">An interactive session on how to ask better questions to AI and get the most out of modern tools.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex gap-4 mt-4">
-                  <Button className="bg-[#1FADE4] hover:bg-[#0D6EAF] text-white font-semibold" onClick={() => setShowDetails(true)}>Read More</Button>
-                  <a href="https://forms.gle/XPk2jAwEGdyGju6K6" target="_blank" rel="noopener noreferrer">
-                    <Button className="bg-[#23272F] hover:bg-[#1FADE4] text-white font-semibold border border-[#1FADE4]">Register</Button>
-                  </a>
+            <div className="mx-auto w-full max-w-md bg-gradient-to-br from-[#181A20] via-[#23272F] to-[#181A20] rounded-3xl shadow-2xl border border-[#23272F] p-6">
+              <div className="flex flex-col items-center">
+                <div className="mb-4 flex justify-center">
+                  <div className="relative">
+                    <img
+                      src={aiEventImage}
+                      alt="The Way of Asking AI"
+                      className="rounded-full object-cover border-4 border-[#1FADE4] shadow-xl transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-2xl"
+                      style={{width: '120px', height: '120px', objectPosition: 'top'}}
+                    />
+                    <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-[#1FADE4] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Event</span>
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
+                <h3 className="text-3xl font-bold text-[#1FADE4] mb-2 text-center drop-shadow">The Way of Asking AI</h3>
+                <div className="flex flex-row gap-4 mb-4 justify-center">
+                  <div className="flex items-center gap-2 px-3 py-1 bg-[#23272F] rounded-full text-sm text-white font-medium shadow">
+                    <Calendar className="w-4 h-4 text-[#1FADE4]" />
+                    <span>4th Asoj, 2082</span>
+                  </div>
+                  <div className="flex items-center gap-2 px-3 py-1 bg-[#23272F] rounded-full text-sm text-white font-medium shadow">
+                    <MonitorSmartphone className="w-4 h-4 text-[#1FADE4]" />
+                    <span>Google Meet</span>
+                  </div>
+                </div>
+                <div className="bg-[#23272F]/60 rounded-xl p-4 mb-2 text-white text-base text-center shadow">
+                  <span className="font-semibold text-[#1FADE4]">“The Art of Asking AI”</span> was a virtual session by CSIT Association of Nepal – Rupandehi, led by AI/ML Developer <span className="font-semibold text-[#CF4546]">Ms. Prashidika Tiwari</span>. The event focused on mastering effective AI prompting, practical strategies for Generative AI, Reinforcement Learning, and real-world applications. Thank you for joining and making it a success!
+                </div>
+                <span className="inline-block bg-[#1FADE4]/10 text-[#CF4546] font-bold px-6 py-2 rounded-full text-lg border border-[#CF4546]/30 shadow mt-2">Closed</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
